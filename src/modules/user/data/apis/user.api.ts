@@ -8,6 +8,7 @@ export class UserApi {
     firstName: "Kesara",
     lastName: "Gamlath",
     email: "kesara@gmail.com",
+    type: "buyer",
   });
 
   getUserApi = async (): Promise<UserModel> => {
@@ -15,6 +16,7 @@ export class UserApi {
   };
 
   updateUserApi = async (user: UserModel): Promise<UserModel> => {
+    console.log("Updating user API");
     this.user = user;
     return (await callApi(this.user)) as UserModel;
   };
