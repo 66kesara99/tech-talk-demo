@@ -4,7 +4,7 @@ interface Params {
   type?: UserType;
 }
 
-export class GetUserTypeWelcomeString {
+export class GetUserWelcomeString {
   call = ({ type }: Params) => {
     switch (type) {
       case UserType.admin:

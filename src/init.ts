@@ -1,7 +1,7 @@
 import { UserApi } from "./modules/user/data/apis/user.api";
 import { UserRepositoryImpl } from "./modules/user/data/repo-impl/user.repository-impl";
 import { UserRepository } from "./modules/user/domain/repositories/user.repository";
-import { GetUserTypeWelcomeString } from "./modules/user/domain/usecases/check-admin.usecase";
+import { GetUserWelcomeString } from "./modules/user/domain/usecases/get-user-welcome-string.usecase";
 import { GetUserUseCase } from "./modules/user/domain/usecases/get-user.usecase";
 import { UpdateUserUseCase } from "./modules/user/domain/usecases/update-user.usecase";
 import { ServiceLocator } from "./services/service-locator.service";
@@ -26,7 +26,7 @@ export const initServices = () => {
       sl.resolve("UserRepository") as UserRepository
     ) as GetUserUseCase
   );
-  sl.register("GetUserTypeWelcomeString", new GetUserTypeWelcomeString());
+  sl.register("GetUserWelcomeString", new GetUserWelcomeString());
 
   return sl.resolve;
 };

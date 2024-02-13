@@ -1,7 +1,7 @@
 import { FC, useEffect, useState } from "react";
 import { Locate } from "../../../../services/service-locator.service";
 import { UserEntity } from "../../domain/entities/user.entity";
-import { GetUserTypeWelcomeString } from "../../domain/usecases/check-admin.usecase";
+import { GetUserWelcomeString } from "../../domain/usecases/get-user-welcome-string.usecase";
 import { GetUserUseCase } from "../../domain/usecases/get-user.usecase";
 import { UpdateUserUseCase } from "../../domain/usecases/update-user.usecase";
 
@@ -13,9 +13,7 @@ export const ViewUserPage: FC<Props> = ({ locate }) => {
   const [user, setUser] = useState<UserEntity>();
   const getUser = locate("GetUser") as GetUserUseCase;
   const updateUser = locate("UpdateUser") as UpdateUserUseCase;
-  const welcomeString = locate(
-    "GetUserTypeWelcomeString"
-  ) as GetUserTypeWelcomeString;
+  const welcomeString = locate("GetUserWelcomeString") as GetUserWelcomeString;
 
   useEffect(() => {
     getUser.call().then((user) => {
