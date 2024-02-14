@@ -8,7 +8,7 @@ export class UserApi {
     firstName: "Kesara",
     lastName: "Gamlath",
     email: "kesara@gmail.com",
-    type: "moderator",
+    type: "admin",
   });
 
   getUserApi = async (): Promise<UserModel> => {
